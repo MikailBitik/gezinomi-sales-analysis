@@ -1,99 +1,71 @@
-Gezinomi Customer Segmentation Project
-Overview
-This project focuses on customer segmentation and revenue prediction based on travel booking data from Gezinomi, a Turkish travel agency. The aim is to derive actionable insights by analyzing user behavior, booking timing, seasonal patterns, and city-concept combinations. The analysis results in the creation of customer personas and segmentation for revenue estimation.
+# Gezinomi Sales Data Analysis
 
-This project was completed as part of the Python Programming for Data Science module in the Data Scientist Path training program by Miuul.
+## 📋 Overview
 
-Dataset Description
-The dataset contains information about travel bookings, including:
+This project presents a comprehensive analysis of sales data from Gezinomi, a travel agency. The primary goal is to explore sales patterns, understand customer behavior, and apply rule-based segmentation to create data-driven customer personas. The analysis delves into how factors like city, hotel concept, and booking season influence sales prices.
 
-SaleCityName: City where the sale was made
+This project was completed as part of the Python Programming for Data Science module in the Data Scientist Path training program by [Miuul](https://miuul.com).
 
-ConceptName: Type of service or accommodation package
+## 📊 Dataset
 
-Price: Amount paid for the booking
+Please note: Due to licensing and privacy restrictions, the dataset (`miuul_gezinomi.xlsx`) used in this analysis is **not included** in this repository.
 
-SaleCheckInDayDiff: Days between booking and check-in
+To run the analysis, you must provide your own version of the dataset and place it in the `gezinomi_project/` directory. The dataset should contain the following key columns:
 
-Seasons: Season of travel
+* `SaleCityName`: The city where the sale was made.
+* `ConceptName`: The concept of the hotel (e.g., "All-Inclusive").
+* `Price`: The price of the sale.
+* `SaleCheckInDayDiff`: The number of days between the sale date and the check-in date.
+* `Seasons`: The travel season (e.g., "High", "Low").
+* `CInDay`: The day of the week for check-in.
 
-CInDay: Day of check-in
+## 🚀 Key Analyses and Features
 
-Key Tasks & Insights
-1. Data Exploration
-Identified the number of unique cities and concepts.
+This project answers several key business questions and develops new features to enhance the analysis:
 
-Calculated frequency distributions and total revenue per city and concept.
+### Analysis Highlights
+* Calculated sales frequencies and total revenue by city.
+* Analyzed sales performance across different hotel concepts.
+* Determined average prices based on various breakdowns (City, Concept, Season).
+* Grouped and aggregated data to reveal deeper insights into pricing structures.
 
-Analyzed average prices across different city and concept combinations.
+### Feature Engineering & Persona Creation
+1.  **`EB_Score` (Early Booker Score)**: A categorical feature was created to segment customers based on how far in advance they book their vacation. Segments include:
+    * Last Minuters (0-7 days)
+    * Potential Planners (7-30 days)
+    * Planners (30-90 days)
+    * Early Bookers (90+ days)
 
-2. Booking Timing Categorization
-Created a new feature (EB_Score) based on how early a booking was made:
+2.  **`sales_level_based` (Personas)**: Rule-based customer personas were defined by combining `City`, `Concept`, and `Season`. This creates specific, actionable customer profiles (e.g., `ANTALYA_HERŞEY DAHIL_HIGH`).
 
-Last Minuters (0–7 days)
+3.  **`SEGMENT`**: The newly created personas were segmented into four distinct tiers (A, B, C, D) based on their average sales price. This allows for easy identification of high-value and low-value customer groups.
 
-Potential Planners (8–30 days)
+## 🛠️ Technologies Used
 
-Planners (31–90 days)
+* **Python**
+* **Pandas**: For data manipulation and analysis.
+* **NumPy**: For numerical operations.
+* **Matplotlib** & **Seaborn**: For data visualization.
+* **Jupyter Notebook**: As the main development environment.
 
-Early Bookers (91+ days)
+## ⚙️ Setup and Usage
 
-3. Multi-level Aggregations
-Explored metrics such as mean price and transaction count across:
+To replicate this analysis, follow these steps:
 
-City-Concept-Booking Timing (EB_Score)
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/gezinomi-sales-analysis.git](https://github.com/your-username/gezinomi-sales-analysis.git)
+    cd gezinomi-sales-analysis
+    ```
 
-City-Concept-Season
+2.  **Install dependencies:**
+    It is recommended to create a virtual environment. Install the required libraries from the `requirements.txt` file.
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-City-Concept-Check-in Day
+3.  **Add the dataset:**
+    Create a folder named `gezinomi_project` in the root directory and place your `miuul_gezinomi.xlsx` file inside it.
 
-4. Persona Creation
-Created new personas by combining city, concept, and season:
-
-ini
-Kodu kopyala
-sales_level_based = SaleCityName_ConceptName_Seasons
-Transformed these into uppercase for consistency.
-
-5. Customer Segmentation
-Segmented personas into 4 segments (A–D) based on average price using quantiles.
-
-Described each segment by mean, max, and total price contribution.
-
-6. Revenue Estimation for New Users
-Estimated potential revenue from two sample users:
-
-"ANTALYA_HERŞEY DAHIL_HIGH" — high-value customer in Segment A.
-
-"GIRNE_YARIM PANSIYON_LOW" — lower-value customer in Segment C or D.
-
-Technologies Used
-Python
-
-Pandas
-
-NumPy
-
-Seaborn
-
-Matplotlib
-
-Jupyter Notebook
-
-How to Run
-Make sure you have the required libraries installed:
-
-bash
-Kodu kopyala
-pip install pandas numpy matplotlib seaborn openpyxl
-Place the dataset in the correct path:
-gezinomi_project/miuul_gezinomi.xlsx
-
-Run the script or notebook to explore, preprocess, and analyze the data.
-
-Author
-This analysis was completed as part of the Miuul Data Scientist Path program.
-
-License
-This project is for educational purposes and is not intended for commercial use.
-
+4.  **Run the analysis:**
+    Open and run the `gezinomi_analysis.ipynb` notebook in a Jupyter environment to see the full analysis, from data loading to persona segmentation and insights.
