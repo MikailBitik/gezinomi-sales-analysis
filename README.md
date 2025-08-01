@@ -48,24 +48,5 @@ This project answers several key business questions and develops new features to
 * **Matplotlib** & **Seaborn**: For data visualization.
 * **Jupyter Notebook**: As the main development environment.
 
-## ⚙️ Setup and Usage
-
-To replicate this analysis, follow these steps:
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/gezinomi-sales-analysis.git](https://github.com/your-username/gezinomi-sales-analysis.git)
-    cd gezinomi-sales-analysis
-    ```
-
-2.  **Install dependencies:**
-    It is recommended to create a virtual environment. Install the required libraries from the `requirements.txt` file.
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Add the dataset:**
-    Create a folder named `gezinomi_project` in the root directory and place your `miuul_gezinomi.xlsx` file inside it.
-
 4.  **Run the analysis:**
     Open and run the `gezinomi_analysis.ipynb` notebook in a Jupyter environment to see the full analysis, from data loading to persona segmentation and insights.
